@@ -35,9 +35,7 @@ class V1InterfaceSlirp(object):
         """
         Returns the model properties as a dict
         """
-        result = {}
-
-        return result
+        return {}
 
     def to_str(self):
         """
@@ -55,10 +53,11 @@ class V1InterfaceSlirp(object):
         """
         Returns true if both objects are equal
         """
-        if not isinstance(other, V1InterfaceSlirp):
-            return False
-
-        return self.__dict__ == other.__dict__
+        return (
+            self.__dict__ == other.__dict__
+            if isinstance(other, V1InterfaceSlirp)
+            else False
+        )
 
     def __ne__(self, other):
         """
